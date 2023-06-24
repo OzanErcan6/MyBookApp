@@ -15,4 +15,12 @@ public class BookService {
     public List<Book> getAllBooks(){
         return bookJpaRepository.findAll();
     }
+
+    public void deleteById(Long bookId) {
+        bookJpaRepository.deleteById(bookId);
+    }
+
+    public Book createBook(Book book) {
+        return bookJpaRepository.save(book);
+    }
 }
