@@ -23,4 +23,8 @@ public class BookService {
     public Book createBook(Book book) {
         return bookJpaRepository.save(book);
     }
+
+    public List<Book> findByWriter(String writer) {
+        return bookJpaRepository.findByWriter(writer);
+    }
 }

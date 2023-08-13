@@ -21,6 +21,10 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
+    @GetMapping("/findByWriter/{writer}")
+    public List<Book> findByWriter(@PathVariable String writer){
+        return bookService.findByWriter(writer);
+    }
 
     //get all books
 
