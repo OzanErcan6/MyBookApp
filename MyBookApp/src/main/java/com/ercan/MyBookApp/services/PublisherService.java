@@ -17,4 +17,8 @@ public class PublisherService {
     public List<Publisher> getAllPublishers(){
         return publisherRepository.findAll();
     }
+
+    public Publisher getPublisherByPublisherId(Long publisherId) {
+        return publisherRepository.findById(publisherId).orElse(null);
+    }
 }

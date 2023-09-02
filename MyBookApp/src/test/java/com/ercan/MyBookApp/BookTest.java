@@ -48,7 +48,7 @@ public class BookTest {
     @Test
     @Transactional
     void retrieveWritersForBook() {
-        Book book = entityManager.find(Book.class, 30001L);
+        Book book = entityManager.find(Book.class, 1L);
 
         for(Writer w: book.getWriters()){
             logger.info("writer: {}", w.getName());
@@ -58,7 +58,7 @@ public class BookTest {
     @Test
     @Transactional
     void findPublisherForBook() {
-        Optional<Book> book = bookRepository.findById(Long.valueOf(30001));
+        Optional<Book> book = bookRepository.findById(Long.valueOf(1));
         if(book.isPresent()){
             System.out.println(book.get().getPublisher().getName());
             assertEquals("zambak",book.get().getPublisher().getName());

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -28,15 +29,19 @@ public class Book {
     @JsonIgnore
     private Publisher publisher;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createDate;
+
     public Book() {
     }
 
-    public Book(Long id, String title, List<Writer> writers, Long isbn, Publisher publisher) {
+    public Book(Long id, String title, List<Writer> writers, Long isbn, Publisher publisher, Date createDate) {
         this.id = id;
         this.title = title;
         this.writers = writers;
         this.isbn = isbn;
         this.publisher = publisher;
+        this.createDate = createDate;
     }
 
     public Long getId() {
@@ -63,6 +68,10 @@ public class Book {
         this.writers.add(writer);
     }
 
+    public void setWriters(List<Writer> writers) {
+        this.writers = writers;
+    }
+
     public Long getIsbn() {
         return isbn;
     }
@@ -77,6 +86,14 @@ public class Book {
 
     public void setPublisher(Publisher publisher) {
         this.publisher = publisher;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 }
 

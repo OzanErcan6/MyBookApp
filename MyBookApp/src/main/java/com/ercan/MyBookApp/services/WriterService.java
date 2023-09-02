@@ -17,4 +17,8 @@ public class WriterService {
     public List<Writer> getAllWriters(){
         return writerRepository.findAll();
     }
+
+    public Writer getWriterByWriterId(Long writerId) {
+        return writerRepository.findById(writerId).orElse(null);
+    }
 }

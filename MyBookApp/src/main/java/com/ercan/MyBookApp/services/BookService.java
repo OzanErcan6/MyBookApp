@@ -1,11 +1,16 @@
 package com.ercan.MyBookApp.services;
 
 import com.ercan.MyBookApp.entity.Book;
+import com.ercan.MyBookApp.entity.Publisher;
+import com.ercan.MyBookApp.entity.Writer;
 import com.ercan.MyBookApp.jpaRepository.BookRepository;
+import com.ercan.MyBookApp.requests.BookCreateRequest;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -16,6 +21,13 @@ public class BookService {
     @Autowired
     EntityManager entityManager;
 
+    @Autowired
+    PublisherService publisherService;
+
+    @Autowired
+    WriterService writerService;
+
+
     public List<Book> getAllBooks(){
         return bookRepository.findAll();
     }
@@ -24,8 +36,28 @@ public class BookService {
 //        bookRepository.deleteById(bookId);
 //    }
 
-    public Book createBook(Book book) {
-        return bookRepository.save(book);
+    public Book createBook(BookCreateRequest bookCreateRequest) {
+        Publisher publisher = publisherService.getPublisherByPublisherId(bookCreateRequest.getPublisher_id());
+        List<Writer> writers = new ArrayList<>();
+
+        for(Long writerId : bookCreateRequest.getWriter_ids()){
+            Writer writer = writerService.getWriterByWriterId(writerId);
+            if(writer!= null){
+                writers.add(writer);
+            }
+        }
+
+        if(publisher != null && writers.size() != 0){
+            Book bookToSave = new Book();
+            bookToSave.setId(bookCreateRequest.getId());
+            bookToSave.setTitle(bookCreateRequest.getTitle());
+            bookToSave.setWriters(writers);
+            bookToSave.setPublisher(publisher);
+            bookToSave.setIsbn(bookCreateRequest.getIsbn());
+            bookToSave.setCreateDate(new Date());
+            return bookRepository.save(bookToSave);
+        }
+        return null;
     }
 
 //    public List<Book> findByWriter(String writer) {

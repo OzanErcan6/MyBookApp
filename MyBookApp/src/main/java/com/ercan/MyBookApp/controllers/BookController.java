@@ -1,6 +1,7 @@
 package com.ercan.MyBookApp.controllers;
 
 import com.ercan.MyBookApp.entity.Book;
+import com.ercan.MyBookApp.requests.BookCreateRequest;
 import com.ercan.MyBookApp.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -31,10 +32,10 @@ public class BookController {
 
     //post book
     // use BookDTO, need writer id list
-//    @PostMapping
-//    public Book createBook(@RequestBody Book book){
-//        return bookService.createBook(book);
-//    }
+    @PostMapping
+    public Book createBook(@RequestBody BookCreateRequest bookCreateRequest){
+        return bookService.createBook(bookCreateRequest);
+    }
 
     //post books
 
