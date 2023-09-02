@@ -31,63 +31,8 @@ public class Book {
     public Book() {
     }
 
-    public Book(Long id, String title, List<Writer> writers, Long isbn, Publisher publisher) {
-        this.id = id;
-        this.title = title;
-        this.writers = writers;
-        this.isbn = isbn;
-        this.publisher = publisher;
-    }
 
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public List<Writer> getWriters() {
-        return writers;
-    }
-
-    public void addWriter(Writer writer) {
-        this.writers.add(writer);
-    }
-
-    public Long getIsbn() {
-        return isbn;
-    }
-
-    public void setIsbn(Long isbn) {
-        this.isbn = isbn;
-    }
-
-    public Publisher getPublisher() {
-        return publisher;
-    }
-
-    public void setPublisher(Publisher publisher) {
-        this.publisher = publisher;
-    }
-
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", writers=" + writers +
-                ", isbn=" + isbn +
-                ", publisher=" + publisher +
-                '}';
-    }
 }
 
