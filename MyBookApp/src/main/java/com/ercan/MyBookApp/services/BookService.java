@@ -2,6 +2,7 @@ package com.ercan.MyBookApp.services;
 
 import com.ercan.MyBookApp.entity.Book;
 import com.ercan.MyBookApp.jpaRepository.BookRepository;
+import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,19 +13,22 @@ public class BookService {
     @Autowired
     BookRepository bookRepository;
 
+    @Autowired
+    EntityManager entityManager;
+
     public List<Book> getAllBooks(){
         return bookRepository.findAll();
     }
 
-    public void deleteById(Long bookId) {
-        bookJpaRepository.deleteById(bookId);
-    }
+//    public void deleteById(Long bookId) {
+//        bookRepository.deleteById(bookId);
+//    }
 
     public Book createBook(Book book) {
-        return bookJpaRepository.save(book);
+        return bookRepository.save(book);
     }
 
-    public List<Book> findByWriter(String writer) {
-        return bookJpaRepository.findByWriter(writer);
-    }
+//    public List<Book> findByWriter(String writer) {
+//        return bookRepository.findByWriter(writer);
+//    }
 }

@@ -16,7 +16,7 @@ public class Publisher {
     @Column(nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY)  // default is lazy fetching, use @Transactional or eager fetching (fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "publisher")  // default is lazy fetching, use @Transactional or eager fetching (fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Book> books = new ArrayList<>();
 

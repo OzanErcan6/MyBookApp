@@ -35,7 +35,7 @@ public class BookTest {
 
     @Test
     void findById_basic() {
-        Optional<Book> book = bookRepository.findById(Long.valueOf(30001));
+        Optional<Book> book = bookRepository.findById(30001L);
         if(book.isPresent()){
             System.out.println(book.get().getTitle());
             assertEquals("book_name_1",book.get().getTitle());

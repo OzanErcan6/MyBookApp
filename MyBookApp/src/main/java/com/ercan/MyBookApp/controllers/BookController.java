@@ -21,29 +21,30 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
-    @GetMapping("/findByWriter/{writer}")
-    public List<Book> findByWriter(@PathVariable String writer){
-        return bookService.findByWriter(writer);
-    }
+//    @GetMapping("/findByWriter/{writer}")
+//    public List<Book> findByWriter(@PathVariable String writer){
+//        return bookService.findByWriter(writer);
+//    }
 
     //get all books
 
 
     //post book
-    @PostMapping
-    public Book createBook(@RequestBody Book book){
-        return bookService.createBook(book);
-    }
+    // use BookDTO, need writer id list
+//    @PostMapping
+//    public Book createBook(@RequestBody Book book){
+//        return bookService.createBook(book);
+//    }
 
     //post books
 
     //put book
 
     //delete book
-    @DeleteMapping("/{bookId}")
-    public void deleteBookByBookId(@PathVariable Long bookId){
-        bookService.deleteById(bookId);
-    }
+//    @DeleteMapping("/{bookId}")
+//    public void deleteBookByBookId(@PathVariable Long bookId){
+//        bookService.deleteById(bookId);
+//    }
 
     //delete books
 
