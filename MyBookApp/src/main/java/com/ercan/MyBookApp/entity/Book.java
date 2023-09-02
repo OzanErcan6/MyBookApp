@@ -2,6 +2,8 @@ package com.ercan.MyBookApp.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,6 +22,7 @@ public class Book {
 
     @ManyToMany//(mappedBy = "books") // books variable in the Writer entity could have the (mappedBy = "writers") does not matter
     @JsonIgnore  //excludes the field
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinTable(name="WRITER_BOOK",
             joinColumns = @JoinColumn(name="BOOK_ID"),
             inverseJoinColumns = @JoinColumn(name="WRITER_ID"))
@@ -29,6 +32,7 @@ public class Book {
     private Long isbn;
 
     @ManyToOne // default is eager fetching
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name="publisher_id", nullable=false)
     @JsonIgnore
     private Publisher publisher;

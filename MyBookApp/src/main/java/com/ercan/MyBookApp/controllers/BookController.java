@@ -27,28 +27,15 @@ public class BookController {
 //        return bookService.findByWriter(writer);
 //    }
 
-    //get all books
-
-
-    //post book
-    // use BookDTO, need writer id list
     @PostMapping
     public Book createBook(@RequestBody BookCreateRequest bookCreateRequest){
         return bookService.createBook(bookCreateRequest);
     }
-
-    //post books
-
     //put book
 
-    //delete book
-//    @DeleteMapping("/{bookId}")
-//    public void deleteBookByBookId(@PathVariable Long bookId){
-//        bookService.deleteById(bookId);
-//    }
-
-    //delete books
-
-
+    @DeleteMapping("/{bookId}")
+    public void deleteBookByBookId(@PathVariable Long bookId){
+        bookService.deleteById(bookId);
+    }
 
 }

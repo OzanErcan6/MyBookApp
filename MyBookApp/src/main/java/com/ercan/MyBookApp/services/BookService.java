@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookService {
@@ -58,6 +59,13 @@ public class BookService {
             return bookRepository.save(bookToSave);
         }
         return null;
+    }
+
+    public void deleteById(Long bookId) {
+        Optional<Book> book = bookRepository.findById(bookId);
+        if(book.isPresent()){
+            bookRepository.deleteById(bookId);
+        }
     }
 
 //    public List<Book> findByWriter(String writer) {
