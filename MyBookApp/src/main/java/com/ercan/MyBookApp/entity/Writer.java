@@ -17,10 +17,10 @@ public class Writer {
     @Column(nullable = false)
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name="WRITER_BOOK",
-            joinColumns = @JoinColumn(name="WRITER_ID"),
-            inverseJoinColumns = @JoinColumn(name="BOOK_ID"))
+    @ManyToMany(mappedBy = "writers", fetch = FetchType.LAZY)
+//    @JoinTable(name="WRITER_BOOK",
+//            joinColumns = @JoinColumn(name="WRITER_ID"),
+//            inverseJoinColumns = @JoinColumn(name="BOOK_ID"))
     @JsonIgnore
     private List<Book> books = new ArrayList<>();
 

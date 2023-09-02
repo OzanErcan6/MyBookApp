@@ -18,14 +18,18 @@ public class Book {
     @Column(nullable = false)
     private String title;
 
-    @ManyToMany(mappedBy = "books") // books variable in the Writer entity could have the (mappedBy = "writers") does not matter
+    @ManyToMany//(mappedBy = "books") // books variable in the Writer entity could have the (mappedBy = "writers") does not matter
     @JsonIgnore  //excludes the field
+    @JoinTable(name="WRITER_BOOK",
+            joinColumns = @JoinColumn(name="BOOK_ID"),
+            inverseJoinColumns = @JoinColumn(name="WRITER_ID"))
     private List<Writer> writers = new ArrayList<>();
 
     @Column(nullable = false)
     private Long isbn;
 
     @ManyToOne // default is eager fetching
+    @JoinColumn(name="publisher_id", nullable=false)
     @JsonIgnore
     private Publisher publisher;
 
