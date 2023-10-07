@@ -16,6 +16,9 @@ public class Customer {
     @Column(nullable = false)
     private String customerName;
 
+    @Column
+    private String profileImageUrl;
+
 //    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //    private List<Post> posts = new ArrayList<>();
 
@@ -28,10 +31,11 @@ public class Customer {
         //this.posts = posts;
     }
 
-    public Customer(Long id, String customerName) {
+    public Customer(Long id, String customerName,String profileImageUrl) {
     //public Customer(Long id, String customerName, List<Post> posts) {
         this.id = id;
         this.customerName = customerName;
+        this.profileImageUrl = profileImageUrl;
         //this.posts = posts;
     }
 
@@ -50,6 +54,15 @@ public class Customer {
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
+
+    public String getProfileImageUrl() {
+        return profileImageUrl;
+    }
+
+    public void setProfileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
+    }
+
 
 //    public List<Post> getPosts() {
 //        return posts;

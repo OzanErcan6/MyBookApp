@@ -34,6 +34,7 @@ public class PostService {
                     dto.setTitle(post.getTitle());
                     dto.setText(post.getText());
                     dto.setCustomerId(post.getCustomer().getId());
+                    dto.setImageUrl(post.getImageUrl());
                     return dto;
                 })
                 .collect(Collectors.toList());

@@ -25,21 +25,26 @@ public class Post {
     @JsonIgnore
     private Customer customer;
 
+    @Column
+    private String imageUrl;
+
 
     public Post() {
     }
 
-    public Post(String title, String text, Customer customer) {
+    public Post(String title, String text, Customer customer, String imageUrl) {
         this.title = title;
         this.text = text;
         this.customer = customer;
+        this.imageUrl = imageUrl;
     }
 
-    public Post(Long id, String title, String text, Customer customer) {
+    public Post(Long id, String title, String text, Customer customer, String imageUrl) {
         this.id = id;
         this.title = title;
         this.text = text;
         this.customer = customer;
+        this.imageUrl = imageUrl;
     }
 
     public Long getId() {
@@ -72,5 +77,13 @@ public class Post {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

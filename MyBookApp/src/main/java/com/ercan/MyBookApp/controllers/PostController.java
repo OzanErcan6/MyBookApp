@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/posts")
+@CrossOrigin
 public class PostController {
 
     @Autowired

@@ -7,6 +7,9 @@ public class PostDTO {
     private String title;
     private Long customerId;
 
+    private String imageUrl;
+
+
     public Long getId() {
         return id;
     }
@@ -37,5 +40,13 @@ public class PostDTO {
 
     public void setCustomerId(Long customerId) {
         this.customerId = customerId;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

@@ -3,6 +3,7 @@ package com.ercan.MyBookApp.DTOs;
 public class CustomerDTO {
     private Long id;
     private String customerName;
+    private String profileImageUrl;
 
 
     public Long getId() {
@@ -19,5 +20,13 @@ public class CustomerDTO {
 
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
+    }
+
+    public String getProfileImageUrl() {
+        return profileImageUrl;
+    }
+
+    public void setProfileImageUrl(String profileImageUrl) {
+        this.profileImageUrl = profileImageUrl;
     }
 }

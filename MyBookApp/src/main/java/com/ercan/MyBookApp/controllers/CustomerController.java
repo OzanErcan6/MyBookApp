@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/customers")
+@CrossOrigin
 public class CustomerController {
 
     @Autowired
@@ -25,6 +26,7 @@ public class CustomerController {
                     CustomerDTO dto = new CustomerDTO();
                     dto.setId(customer.getId());
                     dto.setCustomerName(customer.getCustomerName());
+                    dto.setProfileImageUrl(customer.getProfileImageUrl());
                     return dto;
                 })
                 .collect(Collectors.toList());
