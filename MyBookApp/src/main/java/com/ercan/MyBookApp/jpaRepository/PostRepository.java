@@ -1,0 +1,13 @@
+package com.ercan.MyBookApp.jpaRepository;
+
+import com.ercan.MyBookApp.entity.Post;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface PostRepository extends JpaRepository<Post, Long> {
+    List<Post> findByCustomerId(Long userId);
+}
+
+
+
