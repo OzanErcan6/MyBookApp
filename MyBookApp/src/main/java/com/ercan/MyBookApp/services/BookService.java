@@ -68,6 +68,11 @@ public class BookService {
         }
     }
 
+    public Book getBookById(Long bookId) {
+        Optional<Book> book = bookRepository.findById(bookId);
+        return book.orElse(null);
+    }
+
 //    public List<Book> findByWriter(String writer) {
 //        return bookRepository.findByWriter(writer);
 //    }
